@@ -1,43 +1,64 @@
 body {
-  height: 100vh;
-  background-image: url("images/tour/background 1.png");
+  min-height: 100vh;
+  background-image: url("images/main-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .container {
   max-width: 1280px;
   margin: 0 auto;
 }
-.logo-container > span {
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 29px;
-  line-height: 29px;
 
-  color: #ffffff;
-}
 header {
   padding: 40px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .logo-container {
-  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 8px;
+  text-decoration: none;
 }
-.logo-container > span:last-child {
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.logo-text > span {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 29px;
+  line-height: 29px;
+  color: #ffffff;
+  transition: 0.3s;
+}
+
+.logo-text > span:last-child {
   font-size: 18px;
   line-height: 18px;
 }
-.logo-text {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: start;
+
+.logo-container:hover .logo-text > span {
+  color: #f26522;
 }
+
+.logo-img-hover {
+  display: none;
+}
+.logo-container:hover .logo-img-hover {
+  display: inline-block;
+}
+.logo-container:hover .logo-img {
+  display: none;
+}
+
 .contacts > a {
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -51,13 +72,15 @@ header {
   transition: 0.3s;
 }
 
-.contacts > a :first-child {
+.contacts > a:first-child {
   margin-bottom: 13px;
 }
+
 .contacts > a:hover {
   color: #f26522;
 }
-.photo h2 {
+
+.tour-card h2 {
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -68,16 +91,26 @@ header {
   margin-top: 20px;
   transition: 0.3s;
 }
-.photo:hover h2 {
+.tour-card {
+  max-width: 380px;
+}
+
+.tour-card:hover h2 {
   color: #f26522;
 }
 
 main {
   display: flex;
-  gap: 65px;
   flex-wrap: wrap;
+  gap: 65px;
   justify-content: space-between;
 }
+
+footer {
+  padding: 15px 0;
+  margin-top: 15px;
+}
+
 .copyright {
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -87,28 +120,80 @@ main {
   text-align: center;
   color: #ffffff;
 }
-footer {
-  padding: 15px 0;
-  margin-top: 15px;
-}
-
-.logo-text > span {
+.tour-price-container {
+  background: #f26522;
+  padding: 30px 16px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-family: "Roboto", sans-serif;
   font-style: normal;
-  font-weight: 700;
-  font-size: 29px;
-  line-height: 29px;
+  font-weight: 400;
+  color: #ffffff;
+  position: absolute;
+  bottom: -60px;
+  left: 0px;
+  right: 0px;
+  transition: 0.5s;
+}
+
+.price {
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.tour-details {
+  font-size: 14px;
+  line-height: 14px;
+  text-decoration: none;
   color: #ffffff;
 }
-.logo-container:hover .logo-text > span {
-  color: #f26522;
+.img-container {
+  position: relative;
+  overflow: hidden;
 }
-.logo-img-hover {
-  display: none;
+.tour-card:hover .tour-price-container {
+  bottom: 0;
 }
-.logo-container:hover > .logo-img-hover {
-  display: inline-block;
+.price::before {
+  content: "from";
+  font-size: 10px;
+  line-height: 10px;
+  top: 10px;
+  position: absolute;
 }
-.logo-container:hover .logo-img {
-  display: none;
+.tour-details::after {
+  content: ">";
+  padding-left: 10px;
+}
+@media (max-width: 430px) {
+  header {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contacts > a {
+    text-align: center;
+  }
+}
+
+@media (max-width: 1300px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 1100px) {
+  body {
+    height: auto;
+  }
+
+  main {
+    justify-content: center;
+  }
+}
+@media (max-width: 330px) {
+  .tour-card,
+  .img-container > img {
+    width: 100%;
+  }
 }
